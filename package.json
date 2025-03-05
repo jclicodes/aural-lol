@@ -1,0 +1,22 @@
+{
+  "name": "aural-lol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "download": "rimraf website/files/*.json && node scripts/prepare-data.js",
+    "dev": "lite-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.5.2",
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "axios": "^1.8.1",
+    "lite-server": "^2.6.1",
+    "parcel": "^2.13.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.2"
+  }
+}

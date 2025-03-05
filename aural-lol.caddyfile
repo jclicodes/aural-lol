@@ -1,0 +1,22 @@
+handle_path /aural-lol* {
+  root * /var/www/aural-lol
+
+  file_server {
+    index index.html
+    browse # Remove in production
+  }
+
+  header {
+    @static {
+      path *.mp3 *.json *.css *.js
+    }
+    @html {
+      path *.html
+    }
+    Cache-Control @static "public, max-age=31536000, immutable"
+    Cache-Control @html "public, max-age=3600"
+  }
+
+  # Enable compression
+  encode gzip br
+}

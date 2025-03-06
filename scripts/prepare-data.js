@@ -52,7 +52,11 @@ const downloadChampionData = async () => {
 
         const championData = {
           name: rawChampionData.name,
-          spells: rawChampionData.spells,
+          spells: rawChampionData.spells
+            .map(({ spellKey, abilityVideoPath }) => ({
+              spellKey,
+              abilityVideoPath
+            })),
         };
 
         fs.writeFileSync(filepath, JSON.stringify(championData));

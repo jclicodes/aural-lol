@@ -1,2 +1,3 @@
-website/files/*.json
+website/files/*.ogg
+website/files/*.webm
 node_modules/

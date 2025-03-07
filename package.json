@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "download": "rimraf website/files/*.json && node scripts/prepare-data.js",
+    "download": "rimraf website/files/*.{webm,ogg} && node scripts/prepare-data.cjs",
     "dev": "lite-server"
   },
   "keywords": [],

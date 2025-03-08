@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const axios = require("axios");
+const ffmpeg = require('fluent-ffmpeg');
 
 const path = require("path");
 const fs = require("fs");
@@ -23,12 +24,22 @@ const downloadBinary = async (url, filepath) => {
       responseType: 'stream',
     })
 
-    const writer = fs.createWriteStream(filepath);
-    response.data.pipe(writer);
-
+    const filetype = path.extname(filepath);
     return new Promise((resolve, reject) => {
-      writer.on('finish', resolve);
-      writer.on('error', reject);
+      if (filetype === '.webm') {
+        const outputPath = filepath.replace('.webm', '.ogg');
+        ffmpeg(response.data)
+          .noVideo()
+          .audioCodec('libvorbis')
+          .save(outputPath)
+          .on('end', resolve)
+          .on('error', reject);
+      } else {
+        const writer = fs.createWriteStream(filepath);
+        response.data.pipe(writer);
+        writer.on('finish', resolve);
+        writer.on('error', reject);
+      }
     });
   } catch (error) {
     console.error(`Error downloading ${url}: ${error}`);

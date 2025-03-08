@@ -14,6 +14,9 @@ importers:
       axios:
         specifier: ^1.8.1
         version: 1.8.1
+      fluent-ffmpeg:
+        specifier: ^2.1.3
+        version: 2.1.3
       lite-server:
         specifier: ^2.6.1
         version: 2.6.1
@@ -540,6 +543,9 @@ packages:
     resolution: {integrity: sha512-p4jj6Fws4Iy2m0iCmI2am2ZNZCgbdgE+P8F/8csmn2vx7ixXrO2zGcuNsD46X5uZSVecmkEy/M06X2vG8KD6dQ==}
     engines: {node: '>=0.8.0'}
 
+  async@0.2.10:
+    resolution: {integrity: sha512-eAkdoKxU6/LkKDBzLpT+t6Ff5EtfSF4wx1WfJiPEEV7WNLnDaRXk0oVysiEPm262roaachGexwUv94WhSgN5TQ==}
+
   async@2.6.4:
     resolution: {integrity: sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==}
 
@@ -873,6 +879,10 @@ packages:
   finalhandler@1.1.0:
     resolution: {integrity: sha512-ejnvM9ZXYzp6PUPUyQBMBf0Co5VX2gr5H2VQe2Ui2jWXNlxv+PYZo8wpAymJNJdLsG1R4p+M4aynF8KuoUEwRw==}
     engines: {node: '>= 0.8'}
+
+  fluent-ffmpeg@2.1.3:
+    resolution: {integrity: sha512-Be3narBNt2s6bsaqP6Jzq91heDgOEaDCJAXcE3qcma/EJBSy5FB4cvO31XBInuAuKBx8Kptf8dkhjK0IOru39Q==}
+    engines: {node: '>=18'}
 
   follow-redirects@1.15.9:
     resolution: {integrity: sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==}
@@ -1544,6 +1554,10 @@ packages:
 
   weak-lru-cache@1.2.2:
     resolution: {integrity: sha512-DEAoo25RfSYMuTGc9vPJzZcZullwIqRDSI9LOy+fkCJPi6hykCnfKaXTuPBDuXAUcqHXyOgFtHNp/kB2FjYHbw==}
+
+  which@1.3.1:
+    resolution: {integrity: sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==}
+    hasBin: true
 
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
@@ -2342,6 +2356,8 @@ snapshots:
 
   async-each-series@0.1.1: {}
 
+  async@0.2.10: {}
+
   async@2.6.4:
     dependencies:
       lodash: 4.17.21
@@ -2722,6 +2738,11 @@ snapshots:
       unpipe: 1.0.0
     transitivePeerDependencies:
       - supports-color
+
+  fluent-ffmpeg@2.1.3:
+    dependencies:
+      async: 0.2.10
+      which: 1.3.1
 
   follow-redirects@1.15.9(debug@4.3.2):
     optionalDependencies:
@@ -3385,6 +3406,10 @@ snapshots:
   vary@1.1.2: {}
 
   weak-lru-cache@1.2.2: {}
+
+  which@1.3.1:
+    dependencies:
+      isexe: 2.0.0
 
   which@2.0.2:
     dependencies:
